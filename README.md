@@ -1,3 +1,4 @@
+```
 template:''
 v-text
 v-html
@@ -41,3 +42,8 @@ var TodoItem = {
 component:{
     'todo-item':TodoItem
 }
+
+每个组件就是一个实例
+
+子组件向父组件传值，进而执行相关的操作
+```
