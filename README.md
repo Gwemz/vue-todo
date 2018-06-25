@@ -46,4 +46,14 @@ component:{
 每个组件就是一个实例
 
 子组件向父组件传值，进而执行相关的操作
+
+<!-- 全局安装 vue-cli -->
+npm install --global vue-cli
+
+vue init webpack my-project
+
+cd my-project
+
+npm run dev
+
 ```
