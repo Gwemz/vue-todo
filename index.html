@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>vue</title>
+    <link rel="icon" type="image/png" sizes="192x192"  href="https://cn.vuejs.org/images/icons/android-icon-192x192.png">
     <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
 </head>
 <style>
@@ -15,6 +16,7 @@
 </style>
 <body>
     <div id="root">
+        <h2>这是一个简易的todolist</h2>
         <input v-model="content">
         <button v-on:click="handleClick">提交</button>
         <ul>
