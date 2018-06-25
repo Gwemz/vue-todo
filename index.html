@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<style>
+    #root{
+        width:1200px;
+        margin:0 auto;
+    }
+</style>
+<body>
+    <div id="root">
+        <input v-model="content">
+        <button v-on:click="handleClick">提交</button>
+        <ul>
+            <!-- <li v-for="(item,index) of list" :key="index">
+                {{item}}
+            </li> -->
+            <todo-item v-for="(item,index) of list" :key="index" :content="item"></todo-item>
+        </ul>
+    </div>
+</body>
+<script>
+    // 全局组件
+    Vue.component('todo-item',{
+        props:['content'],
+        template:'<li>{{content}}</li>'
+    })
+    // var TodoItem = {
+    //     template:'<li>item</li>'
+    // }
+    new Vue({
+        el:'#root',
+        // component:{
+        //     'todo-item':TodoItem
+        // },
+        data:{
+            content:'',
+            list:[]
+        },
+        methods:{
+            handleClick:function(){
+                this.list.push(this.content);
+                this.content = '';
+            }
+        }
+    })
+</script>
+</html>
