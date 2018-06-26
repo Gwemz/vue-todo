@@ -1,5 +1,5 @@
 <template>
-    <li @click="handleDelete">{{content}}</li>
+    <li class="item" @click="handleDelete">{{content}}</li>
 </template>
 <script>
 export default {
@@ -11,8 +11,15 @@ export default {
     }
 }
 </script>
-<style>
-
+<style scoped>
+.item{
+    font-size:16px;
+    /* color:#40a9ff ; */
+    color:#666666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 </style>
 
 
