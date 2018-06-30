@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tdolist</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>这是一个简易的todolist</h2>
+        <input id="input"/>
+        <button id="btn">提交</button>
+        <ul id="list">
+            
+        </ul>
+    </div>
+</body>
+<script>
+    function Page(){
+
+    }
+    $.extend(Page.prototype,{
+        init:function(){
+            this.bindEvent()
+        },
+        bindEvent:function(){
+            var btn = $('#btn');
+            btn.on('click',$.proxy(this.handleBtnClick,this))
+        },
+        handleBtnClick:function(){
+            var input = $('#input');
+            var val = input.val();
+            var list = $('#list');
+            list.append('<li>'+ val +'</li>');
+            input.val('');
+        }
+    })
+
+    var page = new Page();
+    page.init();
+</script>
+</html>
