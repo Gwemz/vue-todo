@@ -57,3 +57,26 @@ cd my-project
 npm run dev
 
 ```
+## 每一个组件就是一个vue的实例，每一个实例下边有很多的属性和方法
+
+vm.$destory()  实例被销毁
+
+example:index2.html
+
+## 生命周期就是Vue实例在某一个时间点会自动执行的函数
+8个生命周期函数
+beforeCreate
+created
+beforeMount
+mounted
+beforeUpdate
+updated
+beforeDestory
+destroyed
+
+## 模板语法：
+{{name}} 差值表达式
+v-text="name + ' Lee'"
+v-html="name + ' Lee'"
+
+## 计算属性、方法、侦听器

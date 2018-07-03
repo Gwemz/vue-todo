@@ -20,6 +20,7 @@
     </div>
 </body>
 <script>
+    // MVP 模式
     function Page(){
 
     }
@@ -32,11 +33,11 @@
             btn.on('click',$.proxy(this.handleBtnClick,this))
         },
         handleBtnClick:function(){
-            var input = $('#input');
-            var val = input.val();
-            var list = $('#list');
-            list.append('<li>'+ val +'</li>');
-            input.val('');
+            var inputElem = $('#input');
+            var inputValue = inputElem.val();
+            var ulElem = $('#list');
+            ulElem.append('<li>'+ inputValue +'</li>');
+            inputElem.val('');
         }
     })
 
