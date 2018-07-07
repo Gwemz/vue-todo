@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./imgs/logo.png" type="image/x-icon">
+    <title>组件参数校验与非props特性</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <child content="123r847t94t94"></child>
+    </div>
+</body>
+<script>
+    Vue.component('child',{
+        // props:['content'],
+        props:{
+            content:{
+                type:String,
+                required:false,
+                default:'Hello world',
+                validator(value){
+                    return (value.length > 5)
+                }
+            }
+        },
+        template:'<div>{{content}}</div>',
+    })
+    var vm = new Vue({
+        el:'#root',
+        data:{
+            
+        },
+        methods:{
+
+        }
+    })
+</script>
+</html>

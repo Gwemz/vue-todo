@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动态组件与v-once指令</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<!-- 
+    v-once 会将组件加载到内存中，提升性能
+ -->
+<body>
+    <div id="root">
+        <!-- <child-one v-if="type === 'child-one'"></child-one>
+        <child-two v-if="type === 'child-two'"></child-two> -->
+        <component :is="type"></component>
+        <button @click="handleBtnClick">change</button>
+    </div>
+</body>
+<script>
+    Vue.component('child-one',{
+        template:'<div v-once>child-one</div>'
+    })
+    Vue.component('child-two',{
+        template:'<div v-once>child-two</div>'
+    })
+    var vm = new Vue({
+        el:'#root',
+        data:{
+            type:'child-one'
+        },
+        methods:{
+            handleBtnClick(){
+                this.type =  this.type === 'child-one'?'child-two':'child-one'
+            }
+        }
+    })
+</script>
+</html>

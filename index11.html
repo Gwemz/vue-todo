@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue中使用插槽</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <child>
+            <p>winter Guo</p>
+        </child>
+        <body-content>
+            <div class="header" slot="header">header</div>
+            <div class="footer" slot="footer">footer</div>
+        </body-content>
+    </div>
+</body>
+<script>
+    Vue.component('child',{
+        template:'<div><p>Hello</p><slot>default slot</slot></div>'
+    })
+    Vue.component('body-content',{
+        template:`<div>
+                    <slot name="header"></slot>
+                    <div>body-content</div>
+                    <slot name="footer"></slot>
+                </div>`
+    })
+    var vm = new Vue({
+        el:'#root',
+        data:{
+            
+        },
+        methods:{
+
+        }
+    })
+</script>
+</html>

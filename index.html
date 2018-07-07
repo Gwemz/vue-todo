@@ -25,6 +25,7 @@
 </style>
 <body>
     <div id="root">
+        <h2>Vue学习目录</h2>
         <ul>
             <li v-for="(item,index) of list" :key="item.id">
                 <a :href="item.href">{{item.name}}</a>
@@ -40,8 +41,16 @@
                 {id:'1',href:'./index1.html',name:'todoList'},
                 {id:'2',href:'./index2.html',name:'study'},
                 {id:'3',href:'./index3.html',name:'Vue中的样式绑定'},
-                {id:'2',href:'./index4.html',name:'Vue中的条件渲染'},
-                {id:'2',href:'./index5.html',name:'Vue中的列表渲染'},
+                {id:'4',href:'./index4.html',name:'Vue中的条件渲染'},
+                {id:'5',href:'./index5.html',name:'Vue中的列表渲染'},
+                {id:'6',href:'./index6.html',name:'组件使用中的细节点'},
+                {id:'7',href:'./index7.html',name:'父子组件间的数据传递'},
+                {id:'8',href:'./index8.html',name:'组件参数校验与非props特性'},
+                {id:'9',href:'./index9.html',name:'父子组件间的数据传递'},
+                {id:'10',href:'./index10.html',name:'给组件绑定原生事件'},
+                {id:'11',href:'./index11.html',name:'非父子组件间的传值(Bus/总线/发布订阅模式/观察者模式)'},
+                {id:'12',href:'./index12.html',name:'作用域插槽'},
+                {id:'13',href:'./index13.html',name:'动态组件与v-once指令'}
             ]
         },
         methods:{
