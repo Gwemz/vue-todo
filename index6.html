@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件使用中的细节点</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<!-- 
+    子组件传递数据时，data是一个函数
+ -->
+<body>
+    <div id="root">
+        <ul>
+            <li is="row"></li>
+            <li is="row"></li>
+            <li is="row"></li>
+        </ul>
+        <div @click="handleClick" ref="hello">Hello world</div>
+        <h2>简单求和功能实现</h2>
+        <counter ref="one" @change="handleChange"></counter>
+        <counter ref="two" @change="handleChange"></counter>
+        <div>{{total}}</div>
+    </div>
+</body>
+<script>
+    Vue.component('row',{
+        data(){
+            return {
+                content:'on shit!'
+            }
+        },
+        template:'<li>{{content}}</li>'
+    })
+    Vue.component('counter',{
+        template:'<div @click="addnumber">{{number}}</div>',
+        data(){
+            return{
+                number:0
+            }
+        },
+        methods:{
+            addnumber(){
+                this.number ++
+                // 子组件向父组件传递信息
+                this.$emit('change')
+            }
+        }
+    })
+    var vm = new Vue({
+        el:'#root',
+        data:{
+            total:0
+        },
+        methods:{
+            handleClick(){
+                alert(this.$refs.hello.innerHTML);
+            },
+            handleChange(){
+                this.total = this.$refs.one.number + this.$refs.two.number;
+            }
+        }
+    })
+</script>
+</html>
