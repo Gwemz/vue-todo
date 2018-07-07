@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue中的样式绑定</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<style>
+    .red,.activated,.activated2{
+        color:red;
+    }
+    .box,.box1,.box2,.box3{
+        cursor: pointer;
+    }
+    .activated-one{
+        font-weight: bold;
+    }
+</style>
+<body>
+    <div id="root">
+        <div @click="handleClick" class="box" :class="active?'red':''">Hello world!</div>
+        <div class="box1" @click="handleClick1" :class="{activated:isActivated}">box1</div>
+        <div class="box2" @click="handleClick2" :class="[activated2,activatedOne]">box2</div>
+        <div :style="styleObj" class="box3" @click="handleClick3">something are so important that they force us to overcome our fairl</div>
+        <div :style="[styleObj2,{fontSize:'45px'}]" class="box3">something are so important that they force us to overcome our fairl</div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:'#root',
+        data:{
+            active:false,
+            isActivated:false,
+            activated2:'',
+            activatedOne:'activated-one',
+            styleObj:{
+                color:'#cccccc',
+                fontSize:'28px',
+                fontWeight:'bold'
+            },
+            styleObj2:{
+                color:'#e1e1e1'
+            }
+        },
+        methods:{
+            handleClick(){
+                this.active = !this.active
+            },
+            handleClick1(){
+                this.isActivated = !this.isActivated
+            },
+            handleClick2(){
+                this.activated2 = this.activated2 === ''?'activated2':''
+            },
+            handleClick3(){
+                this.styleObj.color = this.styleObj.color === '#cccccc'?'red':'#cccccc'
+            }
+        }
+    })
+</script>
+</html>

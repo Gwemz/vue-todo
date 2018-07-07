@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue中的列表渲染</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<!-- 
+
+    item of list  推荐 
+    item in list
+    :key 一般不建议用index作为key值，建议选用id来处理
+    常用的JS相关方法：push pop shift unshift splice sort reverse
+    template占位符 可以包裹元素，但是并不会真正渲染到页面上
+ -->
+
+<body>
+    <div id="root">
+        <ul>
+            <!-- <li v-for="(item,index) of list" :key="item.sequence">
+                <div class="label">{{item.label}}</div>
+                <div class="question">{{item.question}}</div>
+            </li> -->
+            <template v-for="(item,index) of list" :key="item.sequence">
+                <li>
+                    <span class="label">{{item.label}}</span>
+                    <span class="question">{{item.question}}</span>
+                </li>
+            </template>
+        </ul>
+        <div>
+            <div v-for="(item,key,index) of userInfo">
+                {{index}} -- {{key}} -- {{item}} 
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            list: [{
+                sequence: '01',
+                label: '置顶',
+                question: '了不起的新时代：世界竞争中的中国奇迹'
+            }, {
+                sequence: '02',
+                label: '4017万热度',
+                question: '男性怎样不算「幼稚」？'
+            }, {
+                sequence: '03',
+                label: '587万热度',
+                question: '有哪些视频让你突然感到恋爱了？'
+            }, {
+                sequence: '04',
+                label: '530万热度',
+                question: '相亲见到前女友是一种怎样的体验？'
+            }, {
+                sequence: '05',
+                label: '536万热度',
+                question: '哪个瞬间你觉得你的宠物爱上了你？'
+            }, {
+                sequence: '06',
+                label: '380万热度',
+                question: '如果把四大名著的故事连成一串，会怎么样？'
+            }, {
+                sequence: '07',
+                label: '317万热度',
+                question: '唱歌跑调的原因到底是什么？'
+            }, {
+                sequence: '08',
+                label: '280万热度',
+                question: '高考之后，人生转弯'
+            }],
+            userInfo:{
+                firstName:'winter',
+                lastName:'Guo',
+                age:'34',
+                sex:'strong man',
+                motto:'on shit'
+            }
+        },
+        methods: {
+
+        }
+    })
+</script>
+
+</html>

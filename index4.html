@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue中的条件渲染</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div v-if="show">{{message1}}</div>
+        <div v-else>Bye world!</div>
+        <div v-show="show">{{message2}}</div>
+
+
+        <div v-if="test === 'a'">This is a test!</div>
+        <div v-else-if="test === 'b'">This is b test!</div>
+        <div v-else>on shit!</div>
+
+
+        <div v-if="user">用户名:<input key="username"/></div>
+        <div v-else>邮箱名:<input key="password"/></div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            show: false,
+            message1: 'v-if',
+            message2: 'v-show',
+            test:'a',
+            user:false
+        },
+        methods: {
+
+        }
+    })
+</script>
+
+</html>

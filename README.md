@@ -80,3 +80,15 @@ v-text="name + ' Lee'"
 v-html="name + ' Lee'"
 
 ## 计算属性、方法、侦听器
+
+面向数据的编程
+
+## Vue样式绑定
+
+```
+:class="{activated:isActivated}"
+
+:class="[activated]"
+```
+
+key值添加是为了区分该元素在页面中唯一存在，不可替换
