@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue中使用animate.css库</title>
+    <link rel="stylesheet" href="./css/animate.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<!-- 
+    animate.css官网：https://daneden.github.io/animate.css/
+ -->
+<body>
+    <div id="root">
+        <transition name="fade" enter-active-class="animated hinge" leave-active-class="animated rollIn">
+            <div v-if="show">on shit !!!</div>
+        </transition>
+        <button @click="handleClick">toggle</button>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            show: true
+        },
+        methods: {
+            handleClick() {
+                this.show = !this.show
+            }
+        }
+    })
+</script>
+
+</html>
