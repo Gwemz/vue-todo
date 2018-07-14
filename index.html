@@ -12,23 +12,32 @@
     #root{
         width:1200px;
         margin:0 auto;
+        padding-top:20px;
     }
     *{
         list-style: none;
+        margin:0;
+        padding:0;
+    }
+    h2{
+        font-size:48rpx;
+    }
+    ul,li{
+        list-style: disc;   
     }
     a{
         text-decoration: none;
         color:#95de64;
-        font-size:28px;
+        font-size:24px;
         font-weight: bold;
     }
 </style>
 <body>
     <div id="root">
-        <h2>Vue学习目录</h2>
+        <h2>Vue学习目录(怎么样，惊喜吧，五颜六色！！！)</h2>
         <ul>
             <li v-for="(item,index) of list" :key="item.id">
-                <a :href="item.href">{{item.name}}</a>
+                <a :href="item.href" :style="{color:item.color}">{{item.name}}</a>
             </li>
         </ul>
     </div>
@@ -38,24 +47,25 @@
         el:'#root',
         data:{
             list:[
-                {id:'1',href:'./index1.html',name:'todoList'},
-                {id:'2',href:'./index2.html',name:'study'},
-                {id:'3',href:'./index3.html',name:'Vue中的样式绑定'},
-                {id:'4',href:'./index4.html',name:'Vue中的条件渲染'},
-                {id:'5',href:'./index5.html',name:'Vue中的列表渲染'},
-                {id:'6',href:'./index6.html',name:'组件使用中的细节点'},
-                {id:'7',href:'./index7.html',name:'父子组件间的数据传递'},
-                {id:'8',href:'./index8.html',name:'组件参数校验与非props特性'},
-                {id:'9',href:'./index9.html',name:'父子组件间的数据传递'},
-                {id:'10',href:'./index10.html',name:'给组件绑定原生事件'},
-                {id:'11',href:'./index11.html',name:'非父子组件间的传值(Bus/总线/发布订阅模式/观察者模式)'},
-                {id:'12',href:'./index12.html',name:'作用域插槽'},
-                {id:'13',href:'./index13.html',name:'动态组件与v-once指令'},
-                {id:'14',href:'./index14.html',name:'Vue中css动画原理'},
-                {id:'15',href:'./index15.html',name:'Vue中使用animate.css库'},
-                {id:'16',href:'./index16.html',name:'Vue中JS动画与velocity.js'},
-                {id:'17',href:'./index17.html',name:'Vue中多个元素或组件的过渡'},
-                {id:'18',href:'./index18.html',name:'Vue中的列表过渡'}
+                {id:'1',href:'./pages/index1.html',name:'todoList',color:'#ff7875'},
+                {id:'2',href:'./pages/index2.html',name:'study',color:'#ff9c6e'},
+                {id:'3',href:'./pages/index3.html',name:'Vue中的样式绑定',color:'#ffc069'},
+                {id:'4',href:'./pages/index4.html',name:'Vue中的条件渲染',color:'#ffd666'},
+                {id:'5',href:'./pages/index5.html',name:'Vue中的列表渲染',color:'#ffccc7'},
+                {id:'6',href:'./pages/index6.html',name:'组件使用中的细节点',color:'#d3f261'},
+                {id:'7',href:'./pages/index7.html',name:'父子组件间的数据传递',color:'#95de64'},
+                {id:'8',href:'./pages/index8.html',name:'组件参数校验与非props特性',color:'#5cdbd3'},
+                {id:'9',href:'./pages/index9.html',name:'父子组件间的数据传递',color:'#69c0ff'},
+                {id:'10',href:'./pages/index10.html',name:'给组件绑定原生事件',color:'#85a5ff'},
+                {id:'11',href:'./pages/index11.html',name:'非父子组件间的传值(Bus/总线/发布订阅模式/观察者模式)',color:'#40a9ff'},
+                {id:'12',href:'./pages/index12.html',name:'作用域插槽',color:'#91d5ff'},
+                {id:'13',href:'./pages/index13.html',name:'动态组件与v-once指令',color:'#ffccc7'},
+                {id:'14',href:'./pages/index14.html',name:'Vue中css动画原理',color:'#ffd8bf'},
+                {id:'15',href:'./pages/index15.html',name:'Vue中使用animate.css库',color:'#d3f261'},
+                {id:'16',href:'./pages/index16.html',name:'Vue中JS动画与velocity.js',color:'#ff9c6e'},
+                {id:'17',href:'./pages/index17.html',name:'Vue中多个元素或组件的过渡',color:'#69c0ff'},
+                {id:'18',href:'./pages/index18.html',name:'Vue中的列表过渡',color:'#91d5ff'},
+                {id:'19',href:'./pages/index19.html',name:'Vue中动画的封装',color:'#ffccc7'}
             ]
         },
         methods:{
